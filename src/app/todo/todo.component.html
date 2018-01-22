@@ -1,0 +1,17 @@
+<igx-navbar
+  class="todo__navbar"
+  title="ToDo"
+  actionButtonIcon="menu"
+  >
+</igx-navbar>
+<div class="todo__list">
+  <app-todo-item *ngFor="let todo of todoList"
+    [item]="todo"
+    (edit)="handleEdit($event)"
+    (remove)="handleRemove($event)">
+  </app-todo-item>
+</div>
+<app-add-todo-item
+  class="todo__add"
+  (add)="handleAdd($event)">
+</app-add-todo-item>

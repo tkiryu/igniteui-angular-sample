@@ -1,0 +1,40 @@
+.todoItem {
+  $todoItem: &;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 50px;
+  padding: 0 12px;
+  border-bottom: 1px solid #eee;
+
+  &__check {
+    flex: 0 0 auto;
+    padding: 0 12px;
+  }
+
+  &__title {
+    flex: 1 1 auto;
+    padding: 0 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__editor {
+    flex: 1 0 auto;
+    padding: 8px 12px;
+    border: none;
+  }
+  &__remove {
+    flex: 0 0 auto;
+    padding: 0 12px;
+  }
+
+
+  &.isDone {
+    #{$todoItem}__title {
+      text-decoration-line: line-through;
+    }
+  }
+}

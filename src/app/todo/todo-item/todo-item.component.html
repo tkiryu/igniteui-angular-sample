@@ -1,0 +1,34 @@
+<div
+  class="todoItem"
+  [class.isDone]="item.isDone">
+
+  <igx-checkbox
+    class="todoItem__check"
+    [checked]="item.isDone"
+    (change)="onCheckChange(check.checked)"
+    #check>
+  </igx-checkbox>
+
+  <span
+    *ngIf="!isEditing"
+    class="todoItem__title"
+    (dblclick)="startEdit(true)">
+    {{ item.title }}
+  </span>
+
+  <input
+    *ngIf="isEditing"
+    type="text"
+    class="todoItem__editor"
+    [value]="item.title"
+    (input)="onTitleChange(input.value)"
+    (keydown)="endEdit($event)"
+    #input>
+
+  <button
+    class="todoItem__remove"
+    igxButton="icon"
+    (click)="onRemove()">
+    <igx-icon name="delete"></igx-icon>
+  </button>
+  </div>
