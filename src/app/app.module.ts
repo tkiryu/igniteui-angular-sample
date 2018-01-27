@@ -1,19 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {
+  IgxCheckboxModule,
+  IgxButtonModule,
+  IgxIconModule,
+  IgxNavbarModule
+} from 'igniteui-angular/main';
+
 import { AppComponent } from './app.component';
-
-import { TodoModule } from './todo/todo.module';
-
+import { TodoComponent } from './todo/todo.component';
+import { TodoItemComponent } from './todo/todo-item/todo-item.component';
+import { AddTodoItemComponent } from './todo/add-todo-item/add-todo-item.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodoComponent,
+    TodoItemComponent,
+    AddTodoItemComponent
   ],
   imports: [
     BrowserModule,
-    TodoModule,
-  ],
+    IgxCheckboxModule,
+    IgxButtonModule,
+    IgxIconModule,
+    IgxNavbarModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

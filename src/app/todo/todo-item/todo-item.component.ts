@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TodoItem } from '../todo-item';
 
 @Component({
@@ -8,45 +8,40 @@ import { TodoItem } from '../todo-item';
 })
 export class TodoItemComponent implements OnInit {
 
-  @Input()
-  item: TodoItem;
-
-  @Output()
-  edit: EventEmitter<TodoItem> = new EventEmitter<TodoItem>();
-
-  @Output()
-  remove: EventEmitter<TodoItem> = new EventEmitter<TodoItem>();
-
   isEditing = false;
 
-  constructor() { }
+  @Input() todo: TodoItem;
+
+  @Output() edit = new EventEmitter<TodoItem>();
+
+  @Output() remove = new EventEmitter<TodoItem>();
 
   ngOnInit() {
-    this.item = {...this.item};
+    this.todo = {...this.todo};
+  }
+
+  onCheckChange(event: boolean) {
+    this.todo.isDone = event;
+    this.edit.emit(this.todo);
   }
 
   startEdit() {
     this.isEditing = true;
   }
 
-  onCheckChange(value: boolean) {
-    this.item.isDone = value;
-    this.edit.emit(this.item);
-  }
-
   onTitleChange(value: string) {
-    this.item.title = value;
+    this.todo.title = value;
   }
 
   endEdit(event: KeyboardEvent) {
     if (event.keyCode !== 13) {
       return;
     }
-    this.edit.emit(this.item);
+    this.edit.emit(this.todo);
     this.isEditing = false;
   }
 
   onRemove() {
-    this.remove.emit(this.item);
+    this.remove.emit(this.todo);
   }
 }

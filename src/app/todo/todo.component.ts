@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoItem } from './todo-item';
-import { TodoService } from './todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -8,12 +7,15 @@ import { TodoService } from './todo.service';
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
+
   todoList: TodoItem[];
 
-  constructor(private todoService: TodoService) { }
-
   ngOnInit() {
-    this.todoList = this.todoService.getTodoList();
+    this.todoList = [
+      { id: 1, title: 'ToDo 1', isDone: false },
+      { id: 2, title: 'ToDo 2', isDone: true },
+      { id: 3, title: 'ToDo 3', isDone: false },
+    ];
   }
 
   handleEdit(event: TodoItem) {
@@ -26,11 +28,12 @@ export class TodoComponent implements OnInit {
   }
 
   handleRemove(event: TodoItem) {
-    this.todoList = this.todoList.filter((todo: TodoItem) => todo.id !== event.id);
+    this.todoList = this.todoList.filter((todo: TodoItem) => {
+      return todo.id !== event.id;
+    });
   }
 
   handleAdd(event: TodoItem) {
     this.todoList = [...this.todoList, event];
   }
-
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TodoItem } from '../todo-item';
 
 @Component({
@@ -10,10 +10,7 @@ export class AddTodoItemComponent implements OnInit {
 
   title = '';
 
-  @Output()
-  add = new EventEmitter<TodoItem>();
-
-  constructor() { }
+  @Output() add = new EventEmitter<TodoItem>();
 
   ngOnInit() {
   }
@@ -26,13 +23,10 @@ export class AddTodoItemComponent implements OnInit {
     if (event.keyCode !== 13) {
       return;
     }
-
     if (!this.title) {
       return;
     }
-
     this.add.emit({ id: Date.now(), title: this.title, isDone: false });
     this.title = '';
   }
-
 }
