@@ -1,5 +1,7 @@
 # TodoApp
-Complete version of ToDo App Seed for TypeScript Beginner ＆ Step up.
+Complete version of [ToDo App Seed](https://github.com/tkiryu/todo-app-seed) for [TypeScript Beginner ＆ Step up](https://atnd.org/events/93615). You can run ToDo App immediately.
+
+You can also create ToDo App using ToDo App Seed step by step. See [Session Presentation](http://slides.com/tkiryu/ts-ng-beginner) and and follow the instruction.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
 
