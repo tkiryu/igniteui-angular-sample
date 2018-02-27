@@ -1,8 +1,4 @@
-# TodoApp
-Complete version of [ToDo App Seed](https://github.com/tkiryu/todo-app-seed) for [TypeScript Beginner ＆ Step up](https://atnd.org/events/93615). You can run ToDo App immediately.
-
-You can also create ToDo App using ToDo App Seed step by step. See [Session Presentation](http://slides.com/tkiryu/ts-ng-beginner) and and follow the instruction.
-
+# Sample using Ignite UI for Angular
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
 
 This project uses [Ignite UI for Angular](https://github.com/IgniteUI/igniteui-angular), which is a complete set of Material-based UI Widgets, Components & Sketch UI kits and supporting directives for Angular by Infragistics.
