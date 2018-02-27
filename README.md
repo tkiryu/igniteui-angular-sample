@@ -5,6 +5,8 @@ You can also create ToDo App using ToDo App Seed step by step. See [Session Pres
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
 
+This project uses [Ignite UI for Angular](https://github.com/IgniteUI/igniteui-angular), which is a complete set of Material-based UI Widgets, Components & Sketch UI kits and supporting directives for Angular by Infragistics.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
