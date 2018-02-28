@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewChild, ElementRef, TemplateRef } from '@angular/core';
-import { TodoItem } from '../todo-item';
+import { TodoItem } from '../../todo-item';
 
 @Component({
   selector: 'app-todo-item',

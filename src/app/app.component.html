@@ -1,6 +1,6 @@
 <div class="app">
   <div class="app__drawer">
-    <igx-nav-drawer #nav [isOpen]="true" [enableGestures]="true" width="280px">
+    <igx-nav-drawer #nav [enableGestures]="true" width="280px">
       <ng-template igxDrawer>
         <nav>
           <ul>
@@ -20,7 +20,7 @@
   <div class="app__main">
     <div class="app__nav">
       <igx-navbar
-        title="ToDo"
+        title="{{ title }}"
         actionButtonIcon="menu"
         (onAction)="nav.toggle()">
       </igx-navbar>
