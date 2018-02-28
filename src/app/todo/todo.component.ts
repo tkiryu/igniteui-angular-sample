@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { TodoItem } from './todo-item';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss']
+  styleUrls: ['./todo.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoComponent implements OnInit {
 
@@ -28,9 +29,7 @@ export class TodoComponent implements OnInit {
   }
 
   handleRemove(event: TodoItem) {
-    this.todoList = this.todoList.filter((todo: TodoItem) => {
-      return todo.id !== event.id;
-    });
+    this.todoList = this.todoList.filter((todo: TodoItem) => todo.id !== event.id);
   }
 
   handleAdd(event: TodoItem) {

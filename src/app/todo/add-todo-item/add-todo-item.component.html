@@ -1,14 +1,17 @@
 <div class="addTodoItem">
 
-  <igx-icon class="addTodoItem__icon" name="add"></igx-icon>
+  <button class="addTodoItem__add"
+    igxButton="icon"
+    igxRipple
+    (click)="addItem(input)">
+    <igx-icon name="add"></igx-icon>
+  </button>
 
   <input
-    type="text"
     class="addTodoItem__editor"
+    type="text"
     placeholder="ToDo の追加"
-    [value]="title"
-    (input)="onTitleChange(input.value)"
-    (keydown)="endEdit($event)"
+    (keydown)="onKeydown($event, input)"
     #input>
 
 </div>

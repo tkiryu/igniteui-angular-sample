@@ -1,1 +1,32 @@
-<app-todo></app-todo>
+<div class="app">
+  <div class="app__drawer">
+    <igx-nav-drawer #nav [isOpen]="true" [enableGestures]="true" width="280px">
+      <ng-template igxDrawer>
+        <nav>
+          <ul>
+            <li igxDrawerItem [isHeader]="true">Menu</li>
+            <li *ngFor="let route of topNavLinks"
+              igxDrawerItem
+              igxRipple
+              routerLink="{{route.path}}"
+              routerLinkActive="igx-nav-drawer__item--active">
+              {{route.name}}
+            </li>
+          </ul>
+        </nav>
+      </ng-template>
+    </igx-nav-drawer>
+  </div>
+  <div class="app__main">
+    <div class="app__nav">
+      <igx-navbar
+        title="ToDo"
+        actionButtonIcon="menu"
+        (onAction)="nav.toggle()">
+      </igx-navbar>
+    </div>
+    <div class="app__content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

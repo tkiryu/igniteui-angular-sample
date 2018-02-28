@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewChild, ElementRef, TemplateRef } from '@angular/core';
 import { TodoItem } from '../todo-item';
 
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
-  styleUrls: ['./todo-item.component.scss']
+  styleUrls: ['./todo-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoItemComponent implements OnInit {
 
@@ -20,28 +21,37 @@ export class TodoItemComponent implements OnInit {
     this.todo = {...this.todo};
   }
 
-  onCheckChange(event: boolean) {
-    this.todo.isDone = event;
+  toggleItemState(value: boolean) {
+    this.todo.isDone = value;
     this.edit.emit(this.todo);
   }
 
-  startEdit() {
+  startEditItem(input: HTMLInputElement) {
     this.isEditing = true;
   }
 
-  onTitleChange(value: string) {
-    this.todo.title = value;
-  }
-
-  endEdit(event: KeyboardEvent) {
+  onKeydown(event: KeyboardEvent) {
+    // Esc の場合は入力をキャンセル
+    if (event.keyCode === 27) {
+      this.isEditing = false;
+      return;
+    }
+    // Enter 以外の場合は入力中のまま
     if (event.keyCode !== 13) {
       return;
     }
+
+    this.endEditItem(event.target as HTMLInputElement);
+  }
+
+  endEditItem(input: HTMLInputElement) {
+    this.todo.title = input.value;
     this.edit.emit(this.todo);
+
     this.isEditing = false;
   }
 
-  onRemove() {
+  removeItem() {
     this.remove.emit(this.todo);
   }
 }
