@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~ress/ress.css';
-@import '~igniteui-angular/styles/igniteui-angular.css';
+
+@import "~igniteui-angular/core/styles/themes/index";
+// IMPORTANT: Make sure you always include igx-core first!
+@include igx-core();
+@include igx-theme($default-palette);
 
 html, body {
   overflow: hidden;
