@@ -1,6 +1,9 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
+// IMPORTANT: StackBlitz requires the following import statement.
+// import 'hammerjs';
+
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
